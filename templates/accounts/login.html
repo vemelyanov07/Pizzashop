@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% comment %} {% extends 'base.html' %} {% endcomment %}
 {% block title %} Sign in {% endblock %}
 {% block content %}
 <div style="text-align: center;">
@@ -27,7 +27,7 @@
             <label class="form-check-label">
             <input class="form-check-input" type="checkbox"> Remember me
             </label>
-            <p><a href="{% url 'password_reset' %}"> Forgot your password?</a>
+            <p><a href="#"> Forgot your password?</a>
             </p>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
