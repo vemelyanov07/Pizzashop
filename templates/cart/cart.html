@@ -1,0 +1,54 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<div class = 'container'>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>name</th>
+        <th>Quantity</th>
+        <th>Price for unit</th>
+        <th>Total price</th>
+      </tr>
+    </thead>
+    <tbody>
+     {% for  product in cart %}
+      <tr>
+        <td> <img class="card-img-top" src="{{product.product.picture_url}}" style="height: 225px; width: auto; display: block; margin: auto;"></td>
+        <td>{{product.product.name}}</td>
+        <td><input type="number" max=100 min=1 value={{product.quantity}}></td>
+        <td>{{product.product.price}}</td>
+        <td>{{product.total_price}}</td>
+        <td><a href="{{product.product.delete}}" class="btn btn-sm btn-outline-secondary mr-sm-2" role="button">X</a></td>
+      </tr>
+    
+     {% endfor %}
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>Total Summa</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>{{cart.total_summa}} $</td>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+               <form method="post" action=""   
+                  <button type="submit" class="btn btn-primary">Place Order</button>
+               </form>
+            </td>
+          </tr>
+      </tr>
+    </tfoot>
+</table>
+</div>                  
+
+{% endblock %}
+    
