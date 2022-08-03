@@ -4,15 +4,15 @@ from django.contrib.auth.models import User
 from django import forms
 from .models import Profile
 
-class UserForm(forms.ModelForms):
+class UserForm(forms.ModelForm):
 
     class Meta:
         model = User
         fields = ('first_name', 'last_name')
 
 
-class ProfileForm(forms.ModelForms):
+# class ProfileForm(forms.ModelForm):
 
-    class Meta:
-        model = Profile
-        field = ('photo', 'username', 'user', 'email')
+#     class Meta:
+#         model = Profile
+#         fields = ('photo', 'username', 'user', 'email')
