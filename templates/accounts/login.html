@@ -1,15 +1,37 @@
-{% comment %} {% extends 'base.html' %} {% endcomment %}
+{% extends 'base.html' %}
 {% block title %} Sign in {% endblock %}
 {% block content %}
 <div style="text-align: center;">
     <div class="container">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.fa {
+  padding: 8px;
+  font-size: 16px;
+  width: 32px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+.fa-facebook {
+  background: none;
+  color: white;
+}
+.fa-google {
+  background: none;
+  color: white;
+}
+</style>
+</head>
+<body>
         <div class="row">
             <div class="col-md-8 mx-auto social-container my-2 order-md-1">
                 <button type="button" class="btn btn-danger text-white">
-                    <a href="#">Login with Google</a>
+                    <a href="#" class="fa fa-google"></a> <a> Login with Google </a>
                 </button>
                 <button class="btn btn-primary text-white">
-                    <a href="#">Login with Facebook</a>
+                    <a href="#" class="fa fa-facebook"></a> <a> Login with Facebook </a>
             </div>
         </div>
     </div>
