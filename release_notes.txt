@@ -1,1 +1,1 @@
-Added to templates cart/cart.html  
+Just feature 21 with updated repo

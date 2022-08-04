@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .banner {
+        background-image: url("/images/banner.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    .carousel-inner img {
+      width: 50%;
+      height: 50%;
+      display: block;
+        margin-left: auto;
+        margin-right: auto
+    }
+</style>
+
+<!-- Какой-то баннер -->
+
+<div class="banner text-center">
+    <br>
+    <br>
+    <h2 class="display-2 text-muted">The true italian</h2>
+    <a role="button" href="#" class="btn btn-danger btn-lg"><h2>ORDER NOW</h2></a>
+    <br>
+    <br>
+</div>
+
+<!-- Карусель с фотками -->
+
+<div class="bg-light">
+    <br>
+    <h2 class="text-center font-weight-light">Our offerings</h2>
+    <br>
+    <div id="carousel" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#carousel" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel" data-slide-to="1"></li>
+    <li data-target="#carousel" data-slide-to="2"></li>
+  </ul>
+
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/images/banner.svg" alt="Los Angeles" width="1100" height="500">
+    </div>
+    <div class="carousel-item">
+      <img src="/images/banner.svg" alt="Chicago" width="1100" height="500">
+    </div>
+    <div class="carousel-item">
+      <img src="/images/banner.svg" alt="New York" width="1100" height="500">
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#carousel" data-slide="prev">
+    <span class="text-dark">🡸</span>
+  </a>
+  <a class="carousel-control-next" href="#carousel" data-slide="next">
+    <span class="text-dark">🡺</span>
+  </a>
+</div>
+</div>
+
+<!--    Potentially, menu will be here(some models needed) -->
+<div class="jumbotron text-center">
+  <h1>Our menu</h1>
+  <p>TO DO, see ya later</p>
+</div>
+
+<!-- Вопрос-ответ, надо дополнить -->
+
+<div class="bg-dark">
+    <br>
+    <h2 class="text-light text-center display-4">FAQ</h2>
+    <div class="row">
+        <h3 class="text-light col text-center font-weight-light">What's Regular Pizza?</h3>
+        <button class="text-light col text-center font-weight-light btn btn-dark" data-toggle="collapse" data-target="#regular_pizza">▼</button>
+    </div>
+    <div class="container collapse" id="regular_pizza">
+        <h5 class="text-light text-center font-weight-light">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elit ex, semper nec mi non, blandit varius erat. Nulla facilisis.
+        </h5>
+    </div>
+    <br>
+    <div class="row">
+        <h3 class="text-light col text-center font-weight-light">What's Sicilian Pizza?</h3>
+        <button class="text-light col text-center font-weight-light btn btn-dark" data-toggle="collapse" data-target="#sicilian_pizza">▼</button>
+    </div>
+    <div class="container collapse" id="sicilian_pizza">
+        <h5 class="text-light text-center font-weight-light">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elit ex, semper nec mi non, blandit varius erat. Nulla facilisis.
+        </h5>
+    </div>
+    <br>
+
+<!--    Of course, you can add more info-->
+</div>
+
+<div class="bg-primary">
+    <a href="#" class="btn btn-primary btn-block btn-lg mx-auto">
+        <br>
+        <br>
+        <div class="container-fluid">
+            <h1><img src="/images/phone-svgrepo-com-white.svg" style="width: 70px; height: 70px">Call us now 999-999-999</h1>
+        </div>
+        <br>
+        <br>
+    </a>
+</div>
+{% endblock %}
+
