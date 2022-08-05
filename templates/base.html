@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -30,7 +31,7 @@
         <!-- Cart will be done later -->
         <a href="#" class="nav-link text-dark">Cart (0)</a>
         <img src="/static/images/log_out_pic.svg" style="height: 40px; width: 40px"><strong class="text-light mr-sm-2">Hello, <a href="#" class="text-light mr-sm-2">{{ user.username }}</a></strong>
-        <a href="#" class="nav-link text-dark"><img src="/static/images/log_out_pic.svg" style="height: 40px; width: 40px"> Log out </a>
+        <a href="#" class="nav-link text-dark"><img src="{% static 'images/log_out_pic.svg' %}" style="height: 40px; width: 40px"> Log out </a>
         {% else %}
         <a href="#" class="nav-link text-dark"><img src="/static/images/sign_in_pic.svg" style="height: 40px; width: 40px"> Sign in </a>
         <a href="#" class="nav-link text-dark"><img src="/static/images/log_in_pic.svg" style="height: 40px; width: 40px"> Log in </a>
