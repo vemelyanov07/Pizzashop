@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'main',
     'menu',
     'rest_framework',
+    'API_menu',
 ]
 
 MIDDLEWARE = [
