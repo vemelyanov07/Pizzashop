@@ -13,8 +13,10 @@ import os
 class ProfilePageView(TemplateView):
     template_name = 'accounts/profile.html'
 
+
 class LoginPageView(TemplateView):
     template_name = 'accounts/login.html'
-    
+
+
 class RegistrationPageView(TemplateView):
     template_name = 'accounts/registration.html'
