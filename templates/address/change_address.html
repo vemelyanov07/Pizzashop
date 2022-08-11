@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+  <center>
+  <br>
+  <h3>Shipping Addresses</h3>
+  <br>
+  <h6 style="color:#5a5757">The following shipping addresses are associated with your account:</h6>
+  <br>
+  <div style="margin-right:35%;">
+    <h6 style="color:#aca5a5">ADDRESS</h6>
+  </div>
+  <hr style="width:50%">
+  </center>
+  <div class="form-check" style="margin-left:28.5%;">
+    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+    <label class="form-check-label" for="flexRadioDefault1">
+      <h6>Нere is</h6>
+      the profile address
+      {% comment %} add the address from the registered profile {% endcomment %}
+    </label>
+  </div>
+  <br>
+  <center>
+  <div class="btn-group">
+    <form method="get">
+      <a href="/address" class="btn btn-dark" role="button">ADD ADDRESS</a>
+    </form>
+  </div>
+  <button type="button" class="btn btn-danger">REMOVE</button> 
+  {% comment %} removes the address from the profile on click {% endcomment %}
+  </center>
+  <br>
+</div>
+{% endblock %}
+

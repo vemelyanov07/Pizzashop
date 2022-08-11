@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
-# Create your views here.
+class ChangeAddressPageView(TemplateView):
+    template_name = 'address/change_address.html'
+
+class AddressPageView(TemplateView):
+    template_name = 'address/address.html'
+
