@@ -1,1 +1,1 @@
-Just feature 21 with updated repo
+Rendering login, profile and cart pages - Vasilevich Igor
