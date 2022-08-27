@@ -1,1 +1,1 @@
-Rendering login, profile and cart pages - Vasilevich Igor
+Fixed login template structure and syntax - Vasilevich Igor
