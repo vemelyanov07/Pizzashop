@@ -2,7 +2,6 @@ from django.views.generic import TemplateView
 from django.shortcuts import render
 from django.urls import is_valid_path
 from .forms import UserForm
-from .forms import Profile
 from django.contrib.auth.decorators import login_required
 import os
 

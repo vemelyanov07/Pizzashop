@@ -2,7 +2,6 @@ from dataclasses import field, fields
 from pyexpat import model
 from django.contrib.auth.models import User
 from django import forms
-from .models import Profile
 
 class UserForm(forms.ModelForm):
 
