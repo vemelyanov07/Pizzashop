@@ -1,17 +1,19 @@
-from dataclasses import field, fields
-from pyexpat import model
-from django.contrib.auth.models import User
+from .models import User
 from django import forms
 
-class UserForm(forms.ModelForm):
+
+class UserRegistrationForm(forms.ModelForm):
+    email = forms.CharField(label="Email", widget=forms.EmailInput)
+    username = forms.CharField(label="Enter your first name", widget=forms.TextInput)
+    password = forms.CharField(label="Password:", widget=forms.PasswordInput)
+    password2 = forms.CharField(label="Repeat your Password:", widget=forms.PasswordInput)
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name')
+        fields = ('email', 'first_name', 'last_name')
 
-
-# class ProfileForm(forms.ModelForm):
-
-#     class Meta:
-#         model = Profile
-#         fields = ('photo', 'username', 'user', 'email')
+    def clean_password2(self):
+        data = self.cleaned_data
+        if data['password'] != data['password2']:
+            raise forms.ValidationError("Passwords didn't match!")
+        return data['password2']

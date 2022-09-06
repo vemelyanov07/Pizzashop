@@ -1,76 +1,85 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>PizzaShop</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pizzeria</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://kit.fontawesome.com/cbbc2228ad.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+    integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
+
 <body>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-light navbar-light border-bottom box-shadow fixed-top">
+      <a class="navbar-brand text-muted" href="#"><b>Pizzeria</b></a>
+      <button class="navbar-toggler navbar-dark bg-dark" type="button" data-toggle="collapse"
+        data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">ORDER</a>
+          </li>
+        </ul>
 
-{% block header %}
-
-<nav class="navbar navbar-expand-sm bg-light navbar-dark">
-  <!-- Brand/logo -->
-  <a class="navbar-brand text-dark" href="{% url 'test_main:pizza' %}">Pizzitalia</a>
-
-  <!-- Links -->
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link text-dark" href="{% url 'test_main:pizza' %}">HOME</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link text-dark" href="#">ORDER</a>
-    </li>
-  </ul>
-  <div class="container-fluid justify-content-end">
         {% if user.is_authenticated %}
-        <!-- Cart will be done later -->
-        <a href="#" class="nav-link text-dark">Cart (0)</a>
-        <img src="/static/images/log_out_pic.svg" style="height: 40px; width: 40px"><strong class="text-light mr-sm-2">Hello, <a href="#" class="text-light mr-sm-2">{{ user.username }}</a></strong>
-        <a href="#" class="nav-link text-dark"><img src="{% static 'images/log_out_pic.svg' %}" style="height: 40px; width: 40px"> Log out </a>
-        {% else %}
-        <a href="#" class="nav-link text-dark"><img src="/static/images/sign_in_pic.svg" style="height: 40px; width: 40px"> Sign in </a>
-        <a href="#" class="nav-link text-dark"><img src="/static/images/log_in_pic.svg" style="height: 40px; width: 40px"> Log in </a>
+        <a href="#" role="button" class="btn font-weight-light text-muted">CART(0)</a>
         {% endif %}
-  </div>
+        <a href="#" role="button" class="btn font-weight-light text-muted">
+          <i class="fa-solid fa-user"></i> SIGN UP</a>
+        <a href="#" role="button" class="btn font-weight-light text-muted">
+          <i class="fa-solid fa-right-to-bracket"></i> LOGIN</a>
 
-</nav>
-
-{% endblock %}
-
-{% block content %}
-{% endblock %}
-
-{% block footer %}
-
-<!-- Подвал -->
-<footer>
-
-      <div class="container-fluid">
-        <table class="table table-borderless table-sm table-active">
-            <tbody>
-                <tr>
-                    <td class="text-center">© 2022. All rights are reserved by Pizzitalia</td>
-                    <td>
-                        <div class="container">
-                        <a href="https://www.instagram.com"><img src="/static/images/instagram-logo-thin-svgrepo-com.svg" style="height: 40px; width: 40px"></a>
-                        <a href="https://twitter.com/?lang=ru"><img src="/static/images/twitter_logo.svg" style="height: 40px; width: 40px"></a>
-                        <a href="#"><img src="/static/images/phone-svgrepo-com.svg" style="height: 40px; width: 40px"></a>
-                        <a href="https://mail.ru"><img src="/static/images/email-svgrepo-com.svg" style="height: 40px; width: 40px"></a>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
       </div>
+    </nav>
+  </header>
 
-</footer>
+  {% block content %}{% endblock content %}
 
-{% endblock %}
-
-</body>
-</html>
+  <!-- Footer -->
+  <footer class="footer" style="border:15px solid white">
+    <div class="container">
+      <a href="tel:617-876-4897" role="button" class="btn btn-outline-light text-muted float-right">
+        <i class="fa-solid fa-phone"></i>
+      </a>
+      <a href="mailto:pizzeria@gmail.com" role="button" class="btn btn-outline-light text-muted float-right">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+      <a href="https://twitter.com/Pizzeria" role="button" class="btn btn-outline-light text-muted float-right">
+        <i class="fa-brands fa-twitter"></i>
+      </a>
+      <a href="https://www.instagram.com/pizzeria/" role="button" class="btn btn-outline-light text-muted float-right">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <p class="text-muted">
+        © 2022. All rights reserved by Pizzeria.
+      </p>
+    </div>
+  </footer>
+  <!-- Footer -->

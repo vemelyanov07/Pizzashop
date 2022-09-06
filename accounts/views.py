@@ -1,21 +1,28 @@
-from django.views.generic import TemplateView
-from django.shortcuts import render
-from django.urls import is_valid_path
-from .forms import UserForm
-from django.contrib.auth.decorators import login_required
-import os
+from rest_framework import generics
+from rest_framework.response import Response
+from rest_framework.renderers import TemplateHTMLRenderer
+from .models import User 
+# from .forms import UserRegistrationForm
 
 
-# class RegisterPageView(TemplateView):
-#     template_name = ''
+class RegistrationListView(generics.ListAPIView):
+    renderer_classes = [TemplateHTMLRenderer]
 
-class ProfilePageView(TemplateView):
-    template_name = 'accounts/profile.html'
-
-
-class LoginPageView(TemplateView):
-    template_name = 'accounts/login.html'
+    def get(self, request, *args, **kwargs):
+        return Response(template_name="registration/registration.html")
 
 
-class RegistrationPageView(TemplateView):
-    template_name = 'accounts/registration.html'
+class ProfileListView(generics.ListAPIView):
+    renderer_classes = [TemplateHTMLRenderer]
+    
+    def get(self, request, *args, **kwargs):
+        return Response(template_name="registration/profile.html")
+
+
+class EmailListView(generics.ListAPIView):
+    queryset = User.objects.all()
+    renderer_classes = [TemplateHTMLRenderer]
+
+    def get(self, request, *args, **kwargs):
+        self.objects = self.get_queryset()
+        return Response({'emails' : self.objects}, template_name="accounts/email_layout.html")
