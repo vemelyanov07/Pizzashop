@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-j@2bu)d(g+g%d&a($m803_351oc7ljng*r5y4^hmmxpa#b=351'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'z24pizzashop.herokuapp.com']
 
@@ -89,7 +89,7 @@ db_from_env = dj_database_url.config(conn_max_age=600)
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'da0ph6rcefp02v',
         'USER': 'adfirdvohmhbzx',
         'PASSWORD': '734462e4e62c323fb6017aff3ae81c48fdeb23d688a1927cb8da3d09d33f874b',

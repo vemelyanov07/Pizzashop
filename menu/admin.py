@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Pizza, Salad, Pasta, Garnier, Drinks, Cocktail, Subs
+from .models import Pizza, Salad, Pasta, Garnier, Drink, Cocktail, Sub
 # Register your models here.
 
 class PizzaAdmin(admin.ModelAdmin):
@@ -32,7 +32,7 @@ class SubsAdmin(admin.ModelAdmin):
 admin.site.register(Pizza, PizzaAdmin)
 admin.site.register(Salad, SaladAdmin)
 admin.site.register(Pasta, PastaAdmin)
-admin.site.register(Drinks, DrinksAdmin)
+admin.site.register(Drink, DrinksAdmin)
 admin.site.register(Garnier, GarnierAdmin)
 admin.site.register(Cocktail, CocktailAdmin)
-admin.site.register(Subs, SubsAdmin)
+admin.site.register(Sub, SubsAdmin)

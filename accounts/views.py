@@ -5,11 +5,17 @@ from .models import User
 # from .forms import UserRegistrationForm
 
 
-class RegistrationListView(generics.ListAPIView):
+class SignUpListView(generics.ListAPIView):
     renderer_classes = [TemplateHTMLRenderer]
 
     def get(self, request, *args, **kwargs):
-        return Response(template_name="registration/registration.html")
+        return Response(template_name="registration/signUp.html")
+
+class SignInListView(generics.ListAPIView):
+    renderer_classes = [TemplateHTMLRenderer]
+
+    def get(self, request, *args, **kwargs):
+        return Response(template_name="registration/signIn.html")
 
 
 class ProfileListView(generics.ListAPIView):

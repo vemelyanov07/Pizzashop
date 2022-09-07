@@ -42,7 +42,7 @@ class Cocktail(models.Model):
     def __str__(self):
         return self.name
 
-class Drinks(models.Model):
+class Drink(models.Model):
     name = models.CharField(max_length=50)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     volume = models.IntegerField()
@@ -50,7 +50,7 @@ class Drinks(models.Model):
     def __str__(self):
         return self.name
 
-class Subs(models.Model):
+class Sub(models.Model):
     name = models.CharField(max_length=50)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     mass = models.IntegerField()
