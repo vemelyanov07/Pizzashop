@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'menu',
     'orders',
     'pages',
-    # 'rest_framework',
+    'rest_framework',
     'api',
     
 ]
@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'pizzeria.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-db_from_env = dj_database_url.config(conn_max_age=600)
+#db_from_env = dj_database_url.config(conn_max_age=600)
 
 DATABASES = {
     'default': {
