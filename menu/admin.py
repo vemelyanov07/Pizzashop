@@ -1,12 +1,38 @@
 from django.contrib import admin
+from .models import Pizza, Salad, Pasta, Garnier, Drink, Cocktail, Sub
+# Register your models here.
 
-from .models import Pasta, Pizza, Salad, Drinks, Coctail, Garnier, Subs
+class PizzaAdmin(admin.ModelAdmin):
+    list_display = ('name', 'medium_price', 'large_price')
 
-admin.site.register(Pasta)
-admin.site.register(Pizza)
-admin.site.register(Salad)
-admin.site.register(Drinks)
-admin.site.register(Coctail)
-admin.site.register(Garnier)
-admin.site.register(Subs)
 
+class SaladAdmin(admin.ModelAdmin):
+    list_display = ('name', 'price')
+
+
+class PastaAdmin(admin.ModelAdmin):
+    list_display = ('name', 'price')
+
+
+class DrinksAdmin(admin.ModelAdmin):
+    list_display = ('name', 'price', 'volume')
+
+
+class CocktailAdmin(admin.ModelAdmin):
+    list_display = ('name', 'price', 'volume')
+
+
+class GarnierAdmin(admin.ModelAdmin):
+    list_display = ('name', 'price', 'mass')
+
+
+class SubsAdmin(admin.ModelAdmin):
+    list_display = ('name', 'price', 'mass')
+
+admin.site.register(Pizza, PizzaAdmin)
+admin.site.register(Salad, SaladAdmin)
+admin.site.register(Pasta, PastaAdmin)
+admin.site.register(Drink, DrinksAdmin)
+admin.site.register(Garnier, GarnierAdmin)
+admin.site.register(Cocktail, CocktailAdmin)
+admin.site.register(Sub, SubsAdmin)

@@ -1,8 +1,14 @@
-from django.urls import path
+from django.contrib import admin
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('profile/', views.ProfilePageView.as_view(), name='profile'),
-    path('login/', views.LoginPageView.as_view(), name='login'),
-    path('registration/', views.RegistrationPageView.as_view(), name='registration')
+    # http://localhost:8000/accounts/sign_up/
+    path('sign_up/', views.SignUpListView.as_view(), name='sign_up'),
+    # http://localhost:8000/accounts/sign_in/
+    path('sign_in/', views.SignInListView.as_view(), name='sign_in'),
+    # http://localhost:8000/accounts/profile/
+    path('profile/', views.ProfileListView.as_view(), name='profile'),
+    # http://localhost:8000/accounts/email/
+    path('email/', views.EmailListView.as_view(), name='email'),
 ]

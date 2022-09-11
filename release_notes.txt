@@ -1,1 +1,1 @@
-Fixed login template structure and syntax - Vasilevich Igor
+- fix registration layout

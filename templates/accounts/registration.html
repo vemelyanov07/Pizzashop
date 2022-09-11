@@ -1,52 +1,49 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'accounts/registration/css/registration_style.css' %}">
-    <title>Registration</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
 {% block content %}
-    <h2 class="registration-title">Sign Up</h2>
-    <form action="" method="post" class="registration__form">
-
-        <button type="button" name="facebook" class="facebook"><img src="../../../../../media/registration/svg/facebook.svg" alt="facebook" width="20" height="20" class="facebook-img">sign up with facebook</button>
-        <button type="button" name="facebook" class="google"><img src="../../../../../media/registration/svg/google.svg" alt="google" width="20" height="20" class="google-img">sign up with google</button>
-
-        <div class='position'>
-            <span class='circle'></span>
+<h1 style="text-align:center">Sign Up</h1>
+<div class="container mt-5 row mx-auto">
+    <div class="col-6 mx-auto">
+        {% if user_form.errors %}
+        <div class="alert alert-danger alert-dismissible">-->
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Error!</strong>{{ user_form.errors }}
         </div>
-
-        <label for="email" class="input_title">E-mail:</label>
-        <input type="email" name="email" placeholder="johndoe@gmail.com" id="email" class="input_form">
-
-        <label for="first_name" class="input_title">First Name:</label>
-        <input type="text" name="first_name" placeholder="Enter First Name" id="first_name" class="input_form">
-
-        <label for="last_name" class="input_title">Last Name:</label>
-        <input type="text" name="last_name" placeholder="Enter Last Name" id="last_name" class="input_form">
-
-        <label for="username" class="input_title">Username:</label>
-        <input type="text" name="username" placeholder="Enter Username" id="username" class="input_form">
-
-        <label for="password" class="input_title">Password:</label>
-        <input type="password" name="password" placeholder="Enter Password" id="password" class="input_form">
-
-        <label for="password_again" class="input_title">Password (again):</label>
-        <input type="password" name="password_again" placeholder="Enter Password (again)" id="password_again" class="input_form">
-
-        <button type="submit" class="form-button">sign up
-            <div class='arrow-block'>
-                <div class='arrow arrow-right'></div>
-                <div class='arrow arrow-right'></div>
+        {% endif %}
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div style="text-align: center">
+                <p><a href="#" class="btn btn-block btn-primary active" role="button">
+                    <i class="fa  fa-facebook fa-fw"></i>SIGN UP WITH FACEBOOK</a></p>
+                <p><a href="#" class="btn btn-block btn-danger active" role="button">
+                    <i class="fa fa-google fa-fw"></i>SIGN UP WITH GOOGLE</a></p>
             </div>
-        </button>
+            <hr>
+            <div class="form-group">
+                <label for="id_email">E-mail:</label>
+                <input type="email" class="form-control" id="id_email"
+                       placeholder="johndoe@gmail.com" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="id_first_name">Username:</label>
+                <input type="text" class="form-control" id="id_first_name"
+                       placeholder="Enter Username" name="username" required>
+            </div>
 
-    </form>
-{% endblock %}
+            <div class="form-group">
+                <label for="id_password">Password:</label>
+                <input type="password" class="form-control" id="id_password"
+                       placeholder="Enter Password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="id_password2">Password (again):</label>
+                <input type="password" class="form-control" id="id_password2"
+                       placeholder="Enter Password (again)" name="password2" required>
+            </div>
+            <div style="text-align: center;" class="col-7 mx-auto">
+                <button type="submit" class="btn btn-block btn-primary mx-auto">SIGN UP</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock  %}
