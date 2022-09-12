@@ -49,11 +49,13 @@
         </ul>
 
         {% if user.is_authenticated %}
-        <a href="#" role="button" class="btn font-weight-light text-muted">CART(0)</a>
+          <a href="{% url 'cart' %}" role="button" class="btn font-weight-light text-muted">CART(0)</a>
+          <span class="font-weight-light text-muted">Logged as {{user.email}}</span>
+          <a href="{% url 'logout'%}" role="button" class="btn font-weight-light text-muted"><i class="fa-solid fa-right-to-bracket"></i> LOGOUT</a>
+        {% else %}
+          <a href="{% url 'sign_up'%}" role="button" class="btn font-weight-light text-muted"><i class="fa-solid fa-user"></i> SIGN UP</a>
+          <a href="{% url 'sign_in'%}" role="button" class="btn font-weight-light text-muted"><i class="fa-solid fa-right-to-bracket"></i> LOG IN</a>
         {% endif %}
-        <a href="{% url 'sign_up'%}" role="button" class="btn font-weight-light text-muted"><i class="fa-solid fa-user"></i>SIGN UP</a>
-        <a href="{% url 'sign_in'%}" role="button" class="btn font-weight-light text-muted"><i class="fa-solid fa-right-to-bracket"></i> LOG IN</a>
-
 
       </div>
     </nav>
