@@ -28,6 +28,10 @@ SECRET_KEY = 'django-insecure-j@2bu)d(g+g%d&a($m803_351oc7ljng*r5y4^hmmxpa#b=351
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
+#ALLOWED_HOSTS = []
+AUTH_USER_MODEL = 'acounts.User'
+
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'z24pizzashop.herokuapp.com']
 
 
@@ -46,9 +50,12 @@ INSTALLED_APPS = [
     'menu',
     'orders',
     'pages',
-    'rest_framework',
     'api',
-    
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google'
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -60,6 +67,36 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'METHOD': 'oauth2',
+        'SCOPE': [
+            'profile',
+            'email'
+        ],
+        'AUTH_PARAMS': {
+            'auth_type': 'reauthenticate',
+            'access_type': 'online'
+        },
+        'FIELDS': [
+            'email',
+            'first_name',
+            'last_name'
+        ],
+        'VERIFIED_EMAIL' : False,
+    }
+}
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+ROOT_URLCONF = 'DjangoGoogleLogin.urls'
+
+SOCIAL_AUTH_GOOGLE_KEY = '869017557035-tvl6pl70auslucjsdh7maam8i5mtt5av.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_SECRET = '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'
 
 ROOT_URLCONF = 'pizzeria.urls'
 
@@ -85,7 +122,7 @@ WSGI_APPLICATION = 'pizzeria.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-#db_from_env = dj_database_url.config(conn_max_age=600)
+db_from_env = dj_database_url.config(conn_max_age=600)
 
 DATABASES = {
     'default': {
@@ -134,10 +171,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
+
+#STATIC_URL = '/static/'
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#STATICFILES_DIRS = [
+   # os.path.join(BASE_DIR, 'static'),
+ #]
+#=======
+
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'static'
-
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

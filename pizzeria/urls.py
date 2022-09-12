@@ -11,6 +11,7 @@ urlpatterns = [
      path('orders/', include('orders.urls')),
      path('', include('pages.urls')),
      path('api/', include('api.urls')),
+     path('accounts/', include('allauth.urls')),
 ]
 
 handler404 = 'pages.views.error_404'
