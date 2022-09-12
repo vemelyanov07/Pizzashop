@@ -55,10 +55,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
-    
-   
-    
+    'allauth.socialaccount.providers.google'
 ]
 
 MIDDLEWARE = [
@@ -74,40 +71,33 @@ MIDDLEWARE = [
 
 
 SOCIALACCOUNT_PROVIDERS = {
-
-'google': {
-
-'METHOD': 'oauth2',
-
-'SCOPE': ['email', 'public_profile'],
-
-'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
-
-'FIELDS': [
-
-'email',
-
-'name',
-
-'first_name',
-
-'last_name'],
-
-'VERIFIED_EMAIL' : False,
-
+    'google': {
+        'METHOD': 'oauth2',
+        'SCOPE': [
+            'profile',
+            'email'
+        ],
+        'AUTH_PARAMS': {
+            'auth_type': 'reauthenticate',
+            'access_type': 'online'
+        },
+        'FIELDS': [
+            'email',
+            'first_name',
+            'last_name'
+        ],
+        'VERIFIED_EMAIL' : False,
+    }
 }
 
-}
-
-AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend',
-                            'allauth.account.auth_backends.AuthenticationBackend',
-
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
 ROOT_URLCONF = 'DjangoGoogleLogin.urls'
 
 SOCIAL_AUTH_GOOGLE_KEY = '869017557035-tvl6pl70auslucjsdh7maam8i5mtt5av.apps.googleusercontent.com'
-
 SOCIAL_AUTH_GOOGLE_SECRET = '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'
 
 ROOT_URLCONF = 'pizzeria.urls'
