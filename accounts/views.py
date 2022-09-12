@@ -11,11 +11,13 @@ class SignUpListView(generics.ListAPIView):
     def get(self, request, *args, **kwargs):
         return Response(template_name="accounts/registration.html")
 
+
 class SignInListView(generics.ListAPIView):
     renderer_classes = [TemplateHTMLRenderer]
 
     def get(self, request, *args, **kwargs):
         return Response(template_name="accounts/login.html")
+
 
 
 class ProfileListView(generics.ListAPIView):

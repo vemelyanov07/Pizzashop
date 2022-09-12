@@ -50,12 +50,12 @@ INSTALLED_APPS = [
     'menu',
     'orders',
     'pages',
-    # 'rest_framework',
     'api',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google'
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -67,8 +67,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
@@ -173,18 +171,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-#<<<<<<< HEAD:pizzashop/settings.py
+
 #STATIC_URL = '/static/'
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 #STATICFILES_DIRS = [
    # os.path.join(BASE_DIR, 'static'),
  #]
 #=======
+
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'static'
-
-
-#>>>>>>> f8889becf6f1dc751f2612cd615b2acb9535ca55:pizzeria/settings.py
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
