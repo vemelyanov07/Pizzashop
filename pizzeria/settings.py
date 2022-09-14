@@ -25,6 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-j@2bu)d(g+g%d&a($m803_351oc7ljng*r5y4^hmmxpa#b=351'
 
+SOCIAL_AUTH_FACEBOOK_KEY = "519207226872671"
+SOCIAL_AUTH_FACEBOOK_SECRET = "fab82ad1fdc422db938bb1223477b21c"
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -56,6 +59,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'rest_framework',
+    'allauth.socialaccount.providers.facebook',
 ]
 
 MIDDLEWARE = [
@@ -84,7 +88,24 @@ SOCIALACCOUNT_PROVIDERS = {
             'first_name',
             'last_name'
         ],
-        'VERIFIED_EMAIL' : False,
+        'VERIFIED_EMAIL': False,
+    },
+    'facebook': {
+        'METHOD': 'oauth2',
+        'SCOPE': [
+            'public_profile',
+            'email'
+        ],
+        'AUTH_PARAMS': {
+            'auth_type': 'reauthenticate',
+            'access_type': 'online'
+        },
+        'FIELDS': [
+            'email',
+            'first_name',
+            'last_name'
+        ],
+        'VERIFIED_EMAIL': False,
     }
 }
 
@@ -194,8 +215,14 @@ STATIC_ROOT = BASE_DIR / 'static'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-LOGIN_REDIRECT_URL = ''
+LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #
 AUTH_USER_MODEL = 'accounts.User'
+
+
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
