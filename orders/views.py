@@ -9,3 +9,10 @@ class CartListView(generics.ListAPIView):
 
     def get(self, request, *args, **kwargs):
         return Response(template_name="orders/cart.html")
+
+class OrderListView(generics.ListAPIView):
+    renderer_classes = [TemplateHTMLRenderer]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, *args, **kwargs):
+        return Response(template_name="orders/order_place.html")

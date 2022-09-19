@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load socialaccount %}
+
 
 {% block content %}
 {% comment %}{% block content %}{% endcomment %}
@@ -14,9 +16,9 @@
         <form method="POST" action="">
             {% csrf_token %}
             <div style="text-align: center">
-                <p><a href="#" class="btn btn-block btn-primary active" role="button">
+                <p><a href="{% provider_login_url 'facebook' %}" class="btn btn-block btn-primary active" role="button">
                     <i class="fa  fa-facebook fa-fw"></i>SIGN UP WITH FACEBOOK</a></p>
-                <p><a href="#" class="btn btn-block btn-danger active" role="button">
+                <p><a href="{% provider_login_url 'google' %}" class="btn btn-block btn-danger active" role="button">
                     <i class="fa fa-google fa-fw"></i>SIGN UP WITH GOOGLE</a></p>
             </div>
             <hr>       
