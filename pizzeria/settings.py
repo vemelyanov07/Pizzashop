@@ -27,6 +27,8 @@ SECRET_KEY = 'django-insecure-j@2bu)d(g+g%d&a($m803_351oc7ljng*r5y4^hmmxpa#b=351
 
 SOCIAL_AUTH_FACEBOOK_KEY = "519207226872671"
 SOCIAL_AUTH_FACEBOOK_SECRET = "fab82ad1fdc422db938bb1223477b21c"
+SOCIAL_AUTH_GOOGLE_KEY = '869017557035-tvl6pl70auslucjsdh7maam8i5mtt5av.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_SECRET = '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'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -35,7 +37,7 @@ DEBUG = True
 #ALLOWED_HOSTS = []
 AUTH_USER_MODEL = 'acounts.User'
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', 'z24pizzashop.herokuapp.com']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -115,9 +117,6 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 ROOT_URLCONF = 'DjangoGoogleLogin.urls'
-
-SOCIAL_AUTH_GOOGLE_KEY = '869017557035-tvl6pl70auslucjsdh7maam8i5mtt5av.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_SECRET = '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'
 
 ROOT_URLCONF = 'pizzeria.urls'
 
