@@ -1,59 +1,71 @@
 from django.db import models
 
 
-class Pizza(models.Model):
-    name = models.CharField(max_length=50)
-    medium_price = models.DecimalField(max_digits=2, decimal_places=2) 
-    large_price = models.DecimalField(max_digits=2, decimal_places=2) 
+class Salad(models.Model):
+    name = models.CharField(max_length=200)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
         return self.name
 
 
-class Salad(models.Model):
-    name = models.CharField(max_length=50)
-    price = models.DecimalField(max_digits=2, decimal_places=2) 
+class Platter(models.Model):
+    name = models.CharField(max_length=200)
+    small_price = models.DecimalField(max_digits=10, decimal_places=2)
+    large_price = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __str__(self):
+        return self.name
+
+
+class Topping(models.Model):
+    name = models.CharField(max_length=255)
 
     def __str__(self):
         return self.name
 
 
 class Pasta(models.Model):
-    name = models.CharField(max_length=50)
-    price = models.DecimalField(max_digits=2, decimal_places=2) 
-
-    def __str__(self):
-        return self.name
-
-
-class Garnier(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    mass = models.IntegerField()
 
     def __str__(self):
         return self.name
 
-class Cocktail(models.Model):
-    name = models.CharField(max_length=50)
+
+class Extra(models.Model):
+    name = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    volume = models.IntegerField()
 
     def __str__(self):
         return self.name
 
-class Drink(models.Model):
-    name = models.CharField(max_length=50)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    volume = models.IntegerField()
-
-    def __str__(self):
-        return self.name
 
 class Sub(models.Model):
-    name = models.CharField(max_length=50)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    mass = models.IntegerField()
+    name = models.CharField(max_length=255)
+    small_price = models.DecimalField(
+        max_digits=10, decimal_places=2, null=True, blank=True)
+    large_price = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __str__(self):
+        return self.name
+
+
+class RegularPizza(models.Model):
+    name = models.CharField(max_length=200)
+    small_price = models.DecimalField(max_digits=10, decimal_places=2)
+    large_price = models.DecimalField(max_digits=10, decimal_places=2)
+    no_of_toppings = models.PositiveSmallIntegerField()
+
+    def __str__(self):
+        return self.name
+
+
+class SicilianPizza(models.Model):
+    name = models.CharField(max_length=200)
+    small_price = models.DecimalField(max_digits=10, decimal_places=2)
+    large_price = models.DecimalField(max_digits=10, decimal_places=2)
+    no_of_toppings = models.PositiveSmallIntegerField()
 
     def __str__(self):
         return self.name
